@@ -1,0 +1,35 @@
+doctype html
+include language
+include defaults
+include month
+-
+    const series = (start, end)=>{
+        const a = [];
+        for(let i=start; i<=end; i++) a.push(i);
+        return a;
+    };
+
+html
+    head
+        title Calendari
+        link(rel='stylesheet', href='/stylesheets/calendar/calendar.css')/
+    body
+        each year in series(startYear, endYear)
+            -
+                const fromMonth = (
+                    year == startYear ? startDate.getMonth()
+                    : 0
+                );
+                const toMonth = (
+                    year == endYear ? endDate.getMonth()
+                    : 11
+                );
+            .calendar(style="--columns: "+columns)
+                header
+                    a(href="/")=year
+                .months
+                    each m in series(fromMonth, toMonth)
+                        +month(year, m)
+
+//- Copyright Joan Miquel Torres Rigo under GNU/GPLv3
+//- https://www.gnu.org/licenses/gpl-3.0.en.html

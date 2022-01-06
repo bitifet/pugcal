@@ -1,0 +1,48 @@
+extends layout
+block content
+    -
+        const currentYear = (new Date()).getFullYear();
+        const defaultStart = `${currentYear}-01-01`;
+        const defaultEnd = `${currentYear}-12-31`;
+        const defaultColumns = 4;
+
+    h1= title
+    form(
+        method=GET,
+        action="/calendar",
+    )
+        p
+            label(
+                for="startDate"
+            ) Data Inici:
+            input#startDate(
+                name="startDate",
+                type="date",
+                value=defaultStart
+            )
+        p
+            label(
+                for="endDate"
+            ) Data Inici:
+            input#endDate(
+                name="endDate",
+                type="date",
+                value=defaultEnd
+            )
+        p
+            label(
+                for="columns"
+            ) Nº Columnes:
+            input#columns(
+                name="columns",
+                type="number",
+                value=defaultColumns
+            )
+        p
+            button(
+                type="submit"
+            ) Generar
+
+
+
+

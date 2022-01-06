@@ -1,0 +1,54 @@
+-
+    [lang] = lang.split(","); /* FIXME */
+    const defaultLanguage = 'en';
+    const translations = {
+        ca: [
+            // ** ******************************* ** 
+            // ** Language-related data (Catalan) ** 
+            // ** ******************************* ** 
+            ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
+            [
+                ["Dl", "Dilluns"],
+                ["Dt", "Dimarts"],
+                ["Dc", "Dimecres"],
+                ["Dj", "Dijous"],
+                ["Dv", "Divendres"],
+                ["Ds", "Dissabte"],
+                ["Dm", "Diumenge"],
+            ],
+        ],
+        es: [
+            // ** ********************************** ** 
+            // ** Language-related data (Castillian) ** 
+            // ** ********************************** ** 
+            ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            [
+                ["Lu", "Lunes"],
+                ["Ma", "Martes"],
+                ["Mi", "Miércoles"],
+                ["Ju", "Jueves"],
+                ["Vi", "Viernes"],
+                ["Sa", "Sábado"],
+                ["Do", "Domingo"],
+            ],
+        ],
+        en: [
+            // ** ********************************** ** 
+            // ** Language-related data (Castillian) ** 
+            // ** ********************************** ** 
+            ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            [
+                ["Mo", "Monday"],
+                ["Tu", "Tuesday"],
+                ["We", "Wednesday"],
+                ["Th", "Thursday"]
+                ["Fr", "Friday"],
+                ["Sa", "Saturday"],
+                ["Su", "Sunday"],
+            ],
+        ],
+    };
+    const [Months, weekDays] = translations[lang] || translations[defaultLanguage];
+
+
+

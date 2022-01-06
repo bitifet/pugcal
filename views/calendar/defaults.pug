@@ -1,0 +1,23 @@
+-
+    // ** ********************** **
+    // ** Defaults and ckeckings **
+    // ** ********************** **
+    const today = new Date();
+    if (! columns) columns = 4;
+    startDate = (
+        startDate ? new Date(startDate)
+        : new Date('01/01/'+today.getFullYear())
+    );
+    endDate = (
+        endDate ? new Date(endDate)
+        : new Date('12/31/'+startDate.getFullYear())
+    );
+
+
+    if (endDate < startDate) throw "Cannot render reversed calendar!";
+    // ------------------------------------------------------------
+
+    const startYear = startDate.getFullYear();
+    const endYear = endDate.getFullYear();
+    const tzOffset = (new Date()).getTimezoneOffset() * 1000;
+

@@ -1,0 +1,22 @@
+mixin month(year, month)
+    - const lastDay = (new Date(year, month + 1, 0)).getDate();
+    .month
+        header=Months[month]
+        .days
+            each d, i in weekDays
+                - const wclass = "weekd"+((i+1)%7);
+                .day.weekLabel(class=wclass, title=d[1])=d[0]
+            each d in series(1, lastDay)
+                -
+                    const currentDay = new Date([
+                        year,
+                        String(month+1).padStart(2, '0'),
+                        String(d).padStart(2, '0'),
+                    ].join("-"))
+                    const wclass = "weekd"+currentDay.getDay();
+                    const isDisabled = (
+                        currentDay < startDate || currentDay > endDate ? "disabled"
+                        : ""
+                    );
+                    const classes = [wclass, isDisabled];
+                .day(class=classes, title=currentDay)=d
